@@ -2,6 +2,9 @@
 
 namespace jaffe {
 
+	template class JLRNLayer <int>;
+	template class JLRNLayer <float>;
+
 	template <typename Dtype>
 	bool JLRNLayer<Dtype>::Init(const vector<string> param){
 		SetParam(param);
@@ -18,6 +21,5 @@ namespace jaffe {
 		return m_param->Show();
 	}
 
-	template class JLRNLayer <int>;
 
 } // namespace jaffe

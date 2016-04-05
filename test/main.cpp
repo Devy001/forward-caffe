@@ -1,9 +1,14 @@
 #include <iostream>
-#include <rawdata.h>
+#include "net.h"
 
-using namespace std;
+using std::cin;
+
+using namespace jaffe;
 
 int main() {
-    cout << "Hello, World!" << endl;
+    JNet<int> net;
+    net.Init("deploy.prototxt");
+    //cout << "Hello, World!" << endl;
+    cin.get();
     return 0;
 }

@@ -52,7 +52,7 @@ namespace jaffe {
 		//Blob<unsigned int> m_rand_vec;
 		//Dtype m_threshold;
 		//Dtype m_scale;
-		//unsigned int m_uint_thres;
+		unsigned int m_uint_thres;
 
 		JDropoutParam* m_param;
 	}; //

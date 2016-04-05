@@ -15,6 +15,41 @@ namespace jaffe {
 
 		~JBaseConvolutionLayer(){};
 
+	protected:
+		//Blob<int> m_kernel_shape;
+		//Blob<int> m_stride;
+		//Blob<int> m_pad;
+		//Blob<int> m_conv_input_shape;
+		vector<int> m_col_buffer_shape;
+		vector<int> m_output_shape;
+		const vector<int>* m_bottom_shape;
+
+		int m_num_spatial_axis;
+		int m_bottom_dim;
+		int m_top_dim;
+		int m_channel_axis;
+		int m_num;
+		int m_channels;
+		int m_group;
+		int m_out_spatial_dim;
+		int m_weight_offset;
+		int m_num_output;
+		bool m_bias_term;
+		bool m_is_1x1;
+		bool m_force_nd_im2col;
+
+	private:
+		int m_num_kernel_im2col;
+		int m_num_kernel_col2im;
+		int m_conv_out_channels;
+		int m_conv_in_channels;
+		int m_conv_out_spatial_dim;
+		int m_kernel_dim;
+		int m_col_offset;
+		int m_output_offset;
+
+//		Blob<Dtype> m_col_buffer;
+//		Blob<Dtype> m_bias_multiplier;
 	};
 
 	template <typename Dtype>
@@ -71,6 +106,9 @@ namespace jaffe {
 		int m_height, m_width;
 		int m_pooled_height, m_pooled_width;
 		bool m_global_pooling;
+
+//		Blob<Dtype> m_rand_idex;
+//		Blob<int> max_idx;
 
 	}; // class JPoolingLayer
 

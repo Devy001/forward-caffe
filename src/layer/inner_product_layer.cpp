@@ -2,6 +2,9 @@
 
 namespace jaffe {
 
+	template class JInnerProductLayer <int>;
+	template class JInnerProductLayer <float>;
+
 	template <typename Dtype>
 	bool JInnerProductLayer<Dtype>::Init(const vector<string> param){
 		SetParam(param);
@@ -19,6 +22,5 @@ namespace jaffe {
 		return m_param->Show();
 	}
 
-	template class JInnerProductLayer <int>;
 
 } // namespace jaffe

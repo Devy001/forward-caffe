@@ -2,6 +2,9 @@
 
 namespace jaffe {
 
+	template class JSoftmaxLayer <int>;
+	template class JSoftmaxLayer <float>;
+
 	template <typename Dtype>
 	bool JSoftmaxLayer<Dtype>::Init(const vector<string> param){
 		SetParam(param);
@@ -23,6 +26,5 @@ namespace jaffe {
 		return m_param->Show();
 	}
 
-	template class JSoftmaxLayer <int>;
 
 } // namespace jaffe

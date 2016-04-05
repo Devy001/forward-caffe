@@ -23,6 +23,12 @@ namespace jaffe {
 		virtual bool Show();
 
 	private:
+		int m_outer_num;
+		int m_inner_num;
+		int softmax_axis;
+//		Blob<Dtype> m_sum_multiplier;
+//		Blob<Dtype> m_scale;
+
 		JSoftmaxParam* m_param;
 	}; // class JSoftmaxLayer
 
