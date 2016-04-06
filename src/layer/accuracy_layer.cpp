@@ -2,8 +2,6 @@
 
 namespace jaffe {
 
-	template class JAccuracyLayer <int>;
-	template class JAccuracyLayer <float>;
 
 	template <typename Dtype>
 	bool JAccuracyLayer<Dtype>::Init(const vector<string> param){
@@ -20,5 +18,8 @@ namespace jaffe {
 	bool JAccuracyLayer<Dtype>::Show(){
 		return m_param->Show();
 	}
+
+	template class JAccuracyLayer <int>;
+	template class JAccuracyLayer <float>;
 
 } // namespace jaffe

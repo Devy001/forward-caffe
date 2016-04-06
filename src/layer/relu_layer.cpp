@@ -2,9 +2,6 @@
 
 namespace jaffe {
 
-	template class JReLULayer <int>;
-	template class JReLULayer <float>;
-
 	template <typename Dtype>
 	bool JReLULayer<Dtype>::Init(const vector<string> param){
 		SetParam(param);
@@ -20,6 +17,9 @@ namespace jaffe {
 	bool JReLULayer<Dtype>::Show(){
 		return m_param->Show();
 	}
+
+	template class JReLULayer <int>;
+	template class JReLULayer <float>;
 
 
 } // namespace jaffe

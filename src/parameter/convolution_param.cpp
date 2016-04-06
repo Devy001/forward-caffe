@@ -23,7 +23,7 @@ namespace jaffe {
 
 		for (int i = 0; i < param.size(); i++){
 			line = param.at(i);
-			if (line.find("convolution_param {") != string::npos){
+			if (line.find("convolution_param{") != string::npos){
 				b_enter = true;
 				i_left += count_if(line.begin(), line.end(),
 					CPisleft);
@@ -58,7 +58,7 @@ namespace jaffe {
 
 		for (int i = 0; i < param.size(); i++){
 			line = param.at(i);
-			// Ã»ÓÐ½øÈë¸üÉîµÄ²ÎÊý
+			// Ã»ï¿½Ð½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä²ï¿½ï¿½ï¿½
 			if (!b_enter_weight && !b_enter_bias){
 
 				matchInt(line, "num_output:", &m_num_output);
@@ -89,7 +89,7 @@ namespace jaffe {
 					}
 				}
 			}
-			// ½øÈë weight_filler ²ÎÊý¿Õ¼ä
+			// ï¿½ï¿½ï¿½ï¿½ weight_filler ï¿½ï¿½ï¿½ï¿½ï¿½Õ¼ï¿½
 			if (line.find("weight_filler") != string::npos){
 				b_enter_weight = false;
 				m_weight_filler = new JFillerParam;
@@ -109,7 +109,7 @@ namespace jaffe {
 					b_enter_weight = false;
 				}
 			}
-			// ½øÈë bias_filler ²ÎÊý¿Õ¼ä
+			// ï¿½ï¿½ï¿½ï¿½ bias_filler ï¿½ï¿½ï¿½ï¿½ï¿½Õ¼ï¿½
 			if (line.find("bias_filler") != string::npos){
 				b_enter_bias = true;
 				m_bias_filler = new JFillerParam;

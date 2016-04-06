@@ -2,9 +2,6 @@
 
 namespace jaffe {
 
-	template class JDropoutLayer <int>;
-	template class JDropoutLayer < float>;
-
 	template <typename Dtype>
 	bool JDropoutLayer<Dtype>::Init(const vector<string> param){
 		SetParam(param);
@@ -20,5 +17,8 @@ namespace jaffe {
 	bool JDropoutLayer<Dtype>::Show(){
 		return m_param->Show();
 	}
+
+	template class JDropoutLayer <int>;
+	template class JDropoutLayer < float>;
 
 } // namespace jaffe

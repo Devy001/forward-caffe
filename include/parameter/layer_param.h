@@ -44,12 +44,14 @@ namespace jaffe {
 		};
 		// 读取所有层都会有的共享参数， 每个 layer 都必须调用
 		bool SetType(const vector<string> param);
+		bool SetName(const vector<string> param);
 		bool SetSharedParam(const vector<string> param);
 		bool ShowSharedParam();
 
 		int GetTopNum(){ return m_s_top.size(); };
 		int GetBottomNum(){ return m_s_bottom.size(); };
 		string GetType(){ return m_s_type; };
+		string GetName(){ return m_s_name; };
 
 	protected:
 		// 各种共享参数

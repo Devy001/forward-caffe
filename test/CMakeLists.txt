@@ -1,2 +1,5 @@
+#link_directories(${PROJECT_BINARY_DIR}/lib)
 add_executable(jaffe_test main.cpp)
+#set(EXECUTABLE_OUTPUT_PATH ${PROJECT_BINARY_DIR}/bin)
+#include_directories(${PROJECT_SOURCE_DIR}/src)
 target_link_libraries(jaffe_test jaffe)

@@ -2,9 +2,6 @@
 
 namespace jaffe {
 
-	template class JConvolutionLayer <int>;
-	template class JConvolutionLayer <float>;
-
 	template <typename Dtype>
 	bool JConvolutionLayer<Dtype>::Init(const vector<string> param){
 		SetParam(param);
@@ -25,5 +22,8 @@ namespace jaffe {
 	bool JConvolutionLayer<Dtype>::Show(){
 		return m_param->Show();
 	}
+
+	template class JConvolutionLayer <int>;
+	template class JConvolutionLayer <float>;
 
 } // namespace jaffe

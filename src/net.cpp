@@ -12,6 +12,7 @@ namespace jaffe {
 	template <typename Dtype>
 	bool JNet<Dtype>::Init(const string filename){
 		cout << "Read Net Parameter From Prototxt ..." << endl;
+		cout << filename << endl;
 		ReadParamFromText(filename);
 		cout << "Done" << endl << endl;
 		cout << "Number of Layers: " << m_param->GetLayerNum() 
@@ -19,7 +20,7 @@ namespace jaffe {
 
 		// 遍历所有 layer 的 type 参数，统计不同种类 layer 个数
 		//cout << "Counting all kinds of Layers ..." << endl;
-		for (int i = 0; i < m_param->GetLayerNum(); i++){
+		for (int i = 1; i < m_param->GetLayerNum(); i++){
 			JLayer<Dtype> layer_temp;
 			layer_temp.SetType(m_param->GetLayerParam(i));
 			if (layer_temp.GetType() == "Data"){
@@ -88,6 +89,12 @@ namespace jaffe {
 
 		for (int i = 0; i < m_param->GetLayerNum(); i++){
 			cout << "[" << i + 1 << "]";
+
+			if(i == 0){
+				cout << "Saving for New Data Layer" <<  endl;
+				continue;
+			}
+
 			JLayer<Dtype> layer_param_temp;
 			layer_param_temp.SetType(m_param->GetLayerParam(i));
 			if (layer_param_temp.GetType() == "Data"){
@@ -96,13 +103,16 @@ namespace jaffe {
 				m_layers.push_back(
 					&m_data_layers[i_data_layer_idex]);
 				i_data_layer_idex++;
+				continue;
 			}
+
 			if (layer_param_temp.GetType() == "Convolution"){
 				m_convolution_layers[i_convolution_layer_idex].Init(
 					m_param->GetLayerParam(i));
 				m_layers.push_back(
 					&m_convolution_layers[i_convolution_layer_idex]);
 				i_convolution_layer_idex++;
+				continue;
 			}
 			if (layer_param_temp.GetType() == "Pooling"){
 				m_pooling_layers[i_pooling_layer_idex].Init(
@@ -110,6 +120,7 @@ namespace jaffe {
 				m_layers.push_back(
 					&m_pooling_layers[i_pooling_layer_idex]);
 				i_pooling_layer_idex++;
+				continue;
 			}
 			if (layer_param_temp.GetType() == "ReLU"){
 				m_relu_layers[i_relu_layer_idex].Init(
@@ -117,6 +128,7 @@ namespace jaffe {
 				m_layers.push_back(
 					&m_relu_layers[i_relu_layer_idex]);
 				i_relu_layer_idex++;
+				continue;
 			}
 			if (layer_param_temp.GetType() == "LRN"){
 				m_lrn_layers[i_lrn_layer_idex].Init(
@@ -124,6 +136,7 @@ namespace jaffe {
 				m_layers.push_back(
 					&m_lrn_layers[i_lrn_layer_idex]);
 				i_lrn_layer_idex++;
+				continue;
 			}
 			if (layer_param_temp.GetType() == "InnerProduct"){
 				m_innerproduct_layers[i_innerproduct_layer_idex].Init(
@@ -131,6 +144,7 @@ namespace jaffe {
 				m_layers.push_back(
 					&m_innerproduct_layers[i_innerproduct_layer_idex]);
 				i_innerproduct_layer_idex++;
+				continue;
 			}
 			if (layer_param_temp.GetType() == "Dropout"){
 				m_dropout_layers[i_dropout_layer_idex].Init(
@@ -138,6 +152,7 @@ namespace jaffe {
 				m_layers.push_back(
 					&m_dropout_layers[i_dropout_layer_idex]);
 				i_dropout_layer_idex++;
+				continue;
 			}
 			if (layer_param_temp.GetType() == "Softmax"){
 				m_softmax_layers[i_softmax_layer_idex].Init(
@@ -145,6 +160,7 @@ namespace jaffe {
 				m_layers.push_back(
 					&m_softmax_layers[i_softmax_layer_idex]);
 				i_softmax_layer_idex++;
+				continue;
 			}
 			if (layer_param_temp.GetType() == "Accuracy"){
 				m_accuracy_layers[i_accuracy_layer_idex].Init(
@@ -152,8 +168,10 @@ namespace jaffe {
 				m_layers.push_back(
 					&m_accuracy_layers[i_accuracy_layer_idex]);
 				i_accuracy_layer_idex++;
+				continue;
 			}
 		}
+		cout << "Initting Layers Done!" << endl;
 
 		//for (int i = 0; i < m_layers.size(); i++){
 		//	m_layers.at(i)->Show();

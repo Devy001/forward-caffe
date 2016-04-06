@@ -22,7 +22,7 @@ namespace jaffe{
 
 		for (int i = 0; i < param.size(); i++){
 			line = param.at(i);
-			if (line.find("convolution_param") != string::npos){
+			if (line.find("relu_param{") != string::npos){
 				b_enter = true;
 				i_left += count_if(line.begin(), line.end(),
 					RPisleft);

@@ -24,5 +24,6 @@ namespace jaffe{
 	}
 
 	template class JPoolingLayer <int>;
+	template class JPoolingLayer <float>;
 
 } // namespace jaffe

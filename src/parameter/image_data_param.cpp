@@ -24,7 +24,7 @@ namespace jaffe {
 		for (int i = 0; i < param.size(); i++){
 			line = param.at(i);
 
-			if (line.find("image_data_param {")){
+			if (line.find("image_data_param{")){
 				b_enter = true;
 				i_left += count_if(line.begin(), line.end(), 
 					IDPisleft);

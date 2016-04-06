@@ -1,0 +1,1 @@
+/usr/bin/c++    -std=c++11   CMakeFiles/jaffe_test.dir/main.cpp.o  -o ../bin/jaffe_test  -L/home/bluuuuer/forward-caffe/build/lib  -L/usr/local/lib  -L/use/lib ../lib/libjaffe.so -Wl,-rpath,/home/bluuuuer/forward-caffe/build/lib:/usr/local/lib:/use/lib 

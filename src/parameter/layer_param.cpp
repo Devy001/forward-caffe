@@ -14,7 +14,18 @@ namespace jaffe {
 		string line;
 		for (int i = 0; i < param.size(); i++){
 			line = param.at(i);
-			if(matchString(line, "type: ", &m_s_type)){
+			if(matchString(line, "type:", &m_s_type)){
+				return true;
+			}
+		}
+		return false;
+	}
+
+	bool JLayerParam::SetName(const vector<string> param){
+		string line;
+		for(int i = 0; i < param.size(); i++){
+			line = param.at(i);
+			if(matchString(line, "name:", &m_s_name)){
 				return true;
 			}
 		}

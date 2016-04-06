@@ -15,4 +15,5 @@ namespace jaffe {
 	}
 
 	template class JLayer<int>;
+	template class JLayer<float>;
 } // namespace jaffe

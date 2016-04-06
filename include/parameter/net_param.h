@@ -27,7 +27,7 @@ namespace jaffe {
 			m_name = "";
 			m_force_backward = false;
 			m_debug_info = false;
-			m_layer_num = 0;
+			m_layer_num = 1; // 预留一个给 data_layer
 		};
 		~JNetParameter(){
 			vector<string>(m_input).swap(m_input);
@@ -48,7 +48,7 @@ namespace jaffe {
 		int GetLayerNum(){ return m_layer_num; };
 		// 返回指定索引位置的layer参数
 		vector<string> GetLayerParam(int idex){
-			return m_layers_param[idex];
+			return m_layers_param[idex -1];
 		}
 	private:
 		string m_filepath; // 文件路径
@@ -65,8 +65,8 @@ namespace jaffe {
 		int m_layer_num; // 该 net 中 layer 的数量
 		vector<vector<string>> m_layers_param;  // 所有的 layer 参数
 
-		// 读取参数时使用正则表达式匹配
-		//bool matchString(const string line, const string key, string* s);
+		// 除去该字符串中的空格
+		string DeleteSpace(const string line);
 	};
 }
 
